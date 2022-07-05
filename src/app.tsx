@@ -10,8 +10,7 @@ import { SocketContext } from "./providers/socket-provider";
 import { addMessage } from "./store/chat-slice";
 
 function App() {
-  const socket = io(process.env.BACKEND_ADDR || "http://localhost:4203");
-  console.log(process.env)
+  const socket = io(process.env.REACT_APP_BACKEND_ADDR || "http://localhost:4203");
 
   socket.on("guest.first", (gift) => {
     store.dispatch(allNew({ me: gift.name, users: gift.users }));
